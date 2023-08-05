@@ -9,6 +9,10 @@
     color: #f1efef;
 
     border-radius: 100px;
+
+    position: absolute;
+    top: 0%;
+    left: 0%;
 }
 
 .nav-list {
