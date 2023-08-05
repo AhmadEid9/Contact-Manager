@@ -21,6 +21,7 @@ class User extends Authenticatable implements JWTSubject {
         'last_name',
         'email',
         'password',
+        'image',
     ];
 
     /**
@@ -39,6 +40,10 @@ class User extends Authenticatable implements JWTSubject {
 
     public function getJWTCustomClaims() {
         return [];
+    }
+
+    function contacts(){
+        return $this->hasMany(Contacts::class);
     }
 
     /**
