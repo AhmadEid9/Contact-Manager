@@ -1,0 +1,9 @@
+.contact {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    padding: 1%;
+    border-radius: 20px;
+    background-color: rgb(144, 192, 255);
+  }
+  

@@ -1,16 +1,17 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
-const Navbar = (signed) => {
+const Navbar = () => {
   return (
     <div className="navbar">
         <div className="logo">
             <img src="../../asset/address-book.png" alt="Logo" class="logo"/>
         </div>
         <ul className="nav-list">
-            <li><a href="/contacts">Contacts</a></li>
-            <li><a href="/create-contact">New</a></li>
-            <li><a href="/map">Map</a></li>
+            <li><Link to="/">Contacts</Link></li>
+            <li><Link to="/create-contact">New</Link></li>
+            <li><Link to="/map">Map</Link></li>
         </ul>
     </div>
   );

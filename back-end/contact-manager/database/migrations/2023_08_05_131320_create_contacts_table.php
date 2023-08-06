@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('last_name');            
             
             $table->string('number');
-            $table->string('number_type'); //Phone - Home
 
             $table->decimal('longitude', 10, 7);
             $table->decimal('lattitude', 10, 7);

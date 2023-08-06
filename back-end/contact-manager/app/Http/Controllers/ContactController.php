@@ -12,7 +12,6 @@ class ContactController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'number' => 'required|string|max:255',
-            'number_type' => 'required|string',
             'longitude' => 'required',
             'lattitude' => 'required',
         ]);
@@ -21,7 +20,6 @@ class ContactController extends Controller
         $contact->first_name = $request->first_name;
         $contact->last_name = $request->last_name;
         $contact->number = $request->number;
-        $contact->number_type = $request->number_type;
         $contact->longitude = $request->longitude;
         $contact->lattitude = $request->lattitude;
 
