@@ -17,10 +17,13 @@
 
 .nav-list {
     display: flex;
+    justify-content: space-between;
+
     gap: 2vw;
+
     list-style: none;
-    padding: 2%;
-    display: flex;
+    
+    padding: 1%;
 }
 
 .nav-list li {

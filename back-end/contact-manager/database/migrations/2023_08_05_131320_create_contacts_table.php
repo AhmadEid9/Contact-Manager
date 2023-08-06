@@ -20,7 +20,6 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('contact_type');// Family - Work - Service
             
             $table->string('first_name');
@@ -37,10 +36,6 @@ return new class extends Migration
             $table->decimal('lattitude', 10, 7);
 
             $table->timestamps();
-        });
-
-        Schema::table('contacts', function (Blueprint $table){
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::table('contacts', function (Blueprint $table){

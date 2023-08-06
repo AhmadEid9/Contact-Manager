@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,11 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Unauthenticated APIS
-Route::group(["prefix" => "guest"], function(){
-    //catch api for unauthorized users
-    Route::get("unauthorized", [AuthController::class, "unauthorized"])->name("unauthorized");
-    //login & signup 
-    Route::post("login", [AuthController::class, "login"]);
-    Route::post("register", [AuthController::class, "register"]);
-});
+Route::post('/create-contact', [ContactController::class, 'createContact']);
+Route::get('/contacts', [ContactController::class, 'getContacts']);

@@ -14,7 +14,6 @@ class ContactController extends Controller
             'number' => 'required|string|max:255',
             'number_type' => 'required|string|min:6',
             'image' => 'required|image',
-            'user_id' => 'required',
             'contact_type' => 'required',
             'longitude' => 'required',
             'lattitue' => 'lattitude',
@@ -27,7 +26,6 @@ class ContactController extends Controller
         $contact->number = $request->number;
         $contact->number_type = $request->number_type;
         $contact->image = $request->image;
-        $contact->user_id = $request->user_id;
         $contact->contact_type = $request->contact_type;
         $contact->longitude = $request->longitude;
         $contact->lattitude = $request->lattitude;
@@ -35,7 +33,10 @@ class ContactController extends Controller
 
         $contact->save();
 
-
+        return response()->json([
+            'status' => 'Contact Added Successfully',
+            'data' => $contact
+        ]);
 
     }
 }
