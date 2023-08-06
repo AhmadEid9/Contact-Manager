@@ -11,35 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contact_types', function (Blueprint $table) {
-            $table->id();
-            $table->string('type');
-            $table->timestamps();
-        });
 
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             
-            $table->unsignedBigInteger('contact_type');// Family - Work - Service
-            
             $table->string('first_name');
-            $table->string('last_name');
-            $table->string('image');
-            
+            $table->string('last_name');            
             
             $table->string('number');
-            $table->string('number_type'); //Phone - Work - Home
-            
-            $table->boolean('is_favorite');
+            $table->string('number_type'); //Phone - Home
 
             $table->decimal('longitude', 10, 7);
             $table->decimal('lattitude', 10, 7);
 
             $table->timestamps();
-        });
-
-        Schema::table('contacts', function (Blueprint $table){
-            $table->foreign('contact_type')->references('id')->on('contact_types');
         });
     }
 

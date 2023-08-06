@@ -12,12 +12,9 @@ class ContactController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'number' => 'required|string|max:255',
-            'number_type' => 'required|string|min:6',
-            'image' => 'required|image',
-            'contact_type' => 'required',
+            'number_type' => 'required|string',
             'longitude' => 'required',
-            'lattitue' => 'lattitude',
-
+            'lattitude' => 'required',
         ]);
 
         $contact = new Contact; 
@@ -25,11 +22,8 @@ class ContactController extends Controller
         $contact->last_name = $request->last_name;
         $contact->number = $request->number;
         $contact->number_type = $request->number_type;
-        $contact->image = $request->image;
-        $contact->contact_type = $request->contact_type;
         $contact->longitude = $request->longitude;
         $contact->lattitude = $request->lattitude;
-        $contact->is_favorite = $request->is_favorite ? true : false;
 
         $contact->save();
 
@@ -37,6 +31,10 @@ class ContactController extends Controller
             'status' => 'Contact Added Successfully',
             'data' => $contact
         ]);
-
+        
+    }
+    public function getContacts(){
+            $contacts = Contact::all();
+            return response()->json($contacts);
     }
 }
