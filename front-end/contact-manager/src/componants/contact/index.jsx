@@ -2,17 +2,13 @@ import React from "react";
 import "./style.css";
 
 
-const Contact = (name, number, longitude, lattitude) => {
-  let name_check = name;
-  let number_check = number;
-  let longitude_check = longitude;
-  let lattitude_check = lattitude;
+const Contact = (contact) => {
   return (
     <div className="contact">
-      <p>{name_check}</p>
-      <p>{number_check}</p>
-      <p>{longitude_check}</p>
-      <p>{lattitude_check}</p>
+      <p>{contact.cname ? contact.cname : "name" }</p>
+      <p>{contact.number ? contact.number : "number" }</p>
+      <p>{contact.longitude ? contact.longitude : "longitude" }</p>
+      <p>{contact.lattitude ? contact.lattitude : "lattitude" }</p>
     </div>
   );
 };

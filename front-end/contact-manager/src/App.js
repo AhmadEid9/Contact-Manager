@@ -1,11 +1,12 @@
 import './App.css';
 import { useState } from "react";
 import Navbar from "./componants/navbar/navbar.jsx";
-import Contacts from "./componants/contacts/contacts.jsx";
+import Contact from "./componants/contact/index.jsx";
 import Map from "./componants/map/index.jsx";
 
 import { Routes, Route } from 'react-router-dom';
 import ContactForm from './componants/contactForm/contactFrom';
+import ContactsList from './componants/ContactsList';
 
 function App() {
   const [contacts, setContacts] = useState([
@@ -36,7 +37,16 @@ function App() {
 
       </header>
       <main className="App-main">
-        {/* <Contacts/> */}
+
+        <Routes>
+          
+          <Route path='/' element={
+            <>
+              <Contact/>
+              <ContactsList contacts={contacts} setContacts={setContacts}/>
+            </>
+        }/>
+        </Routes>
       </main>
     </div>
   );

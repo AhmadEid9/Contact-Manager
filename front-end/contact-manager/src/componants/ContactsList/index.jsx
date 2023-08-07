@@ -1,10 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Contacts from "../contacts/contacts";
+import Contact from "../contact";
 
-const ContactsList = (contacts, setContacts)=>{
+const ContactsList = (props)=>{
+  let response;
   const fetchContacts = async ()=>{
-    const response = await axios.get("http://localhost:8000/contacts");
-    setContacts(response.data)
+    await axios.get("http://localhost:8000/api/contacts")
+    .then((response)=> {props.setContacts(response.data)
+    console.log(response.data)})
+    .catch((e) => console.log(e));
+    
   }
   useEffect(()=>{
     fetchContacts()
@@ -12,9 +18,7 @@ const ContactsList = (contacts, setContacts)=>{
 
   return (
     <div>
-      <h1>Contacts</h1>
-      <Contacts setContacts={setContacts}/>
-      
+      <Contacts contacts={props.contacts}/>
     </div>
   )
 }

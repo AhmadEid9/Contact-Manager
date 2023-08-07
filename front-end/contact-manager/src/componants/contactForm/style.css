@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 60%;
+    width: 100%;
     margin: 0;
     padding: 1%;
     border: 1px solid #ccc;
@@ -21,7 +21,7 @@ background-color: #7e7e7e;
 }
 
 button {
-width: 10%;
+width: 50%;
 padding: 1%;
 font-size: 16px;
 background-color: #007bff;

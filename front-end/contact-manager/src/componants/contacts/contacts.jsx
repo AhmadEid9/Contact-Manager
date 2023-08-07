@@ -1,23 +1,16 @@
 import Contact from "../contact";
-import axios from 'axios';
+import "../contact/style.css"
 
-const Contacts = () => {
-  let response;
-  const fetchContacts = async ()=>{
-    response = await axios.get("http://localhost:8000/api/contacts").catch((e) => {console.log(e);});
-  }
-  fetchContacts();
-    return (
-      <div className="flex column contacts">
-        {response.data.map((contact) => (
-          <Contact
-            name={contact.name}
-            number={contact.number}
-            longitude={contact.longitude}
-            lattitude={contact.lattitude}
-          />
-        ))}
-      </div>
+const Contacts = (props) => {
+    return (props.contacts.map((contact) => {
+       return <div className="contact">
+        <Contact cname={contact.name}
+        number={contact.number}
+        longitude={contact.longitude}
+        lattitude={contact.lattitude}
+        key={contact.name}/>
+        </div>
+})      
     );
   };
   
