@@ -9,16 +9,14 @@ class ContactController extends Controller
 {
     public function createContact(Request $request){
         $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'number' => 'required|string|max:255',
             'longitude' => 'required',
             'lattitude' => 'required',
         ]);
 
         $contact = new Contact; 
-        $contact->first_name = $request->first_name;
-        $contact->last_name = $request->last_name;
+        $contact->name = $request->name;
         $contact->number = $request->number;
         $contact->longitude = $request->longitude;
         $contact->lattitude = $request->lattitude;

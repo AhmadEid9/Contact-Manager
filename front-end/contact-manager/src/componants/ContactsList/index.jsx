@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const ContactsList = ()=>{
-  const [contacts, setContacts] = useState([]);
-
+const ContactsList = (contacts, setContacts)=>{
   const fetchContacts = async ()=>{
     const response = await axios.get("http://localhost:8000/contacts");
     setContacts(response.data)
@@ -21,4 +19,4 @@ const ContactsList = ()=>{
   )
 }
 
-export default Contacts
+export default ContactsList;

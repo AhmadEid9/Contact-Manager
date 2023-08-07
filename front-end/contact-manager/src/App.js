@@ -1,9 +1,11 @@
 import './App.css';
 import { useState } from "react";
 import Navbar from "./componants/navbar/navbar.jsx";
-import Contact from "./componants/contact/index.jsx";
-import { Routes, Route } from 'react-router-dom';
+import Contacts from "./componants/contacts/contacts.jsx";
+import Map from "./componants/map/index.jsx";
 
+import { Routes, Route } from 'react-router-dom';
+import ContactForm from './componants/contactForm/contactFrom';
 
 function App() {
   const [contacts, setContacts] = useState([
@@ -15,6 +17,7 @@ function App() {
       lattitude: 0,
     }
   ]);
+  
   return (
 
     <div className="App">
@@ -24,21 +27,16 @@ function App() {
         <Route path="/" element={
         <>
           <Navbar/>
-        </>}>
-
-        </Route>
-        <Route path="/map" element={<><Navbar/><h1>Good Morning</h1></>}/>
+        </>
+      }/>
+        <Route path="/map" element={<><Navbar/><Map/></>}/>
+        <Route path="/create-contact" element={<><Navbar/><main><ContactForm/></main></>}/>
 
       </Routes>
 
       </header>
       <main className="App-main">
-        <Routes>
-          <Route path='/' element={
-          <>
-            <Contact/>
-          </>}/>
-        </Routes>
+        {/* <Contacts/> */}
       </main>
     </div>
   );
