@@ -24,7 +24,8 @@ const createClusterCustomIcon = function (cluster) {
     
 
 const Map = () => {
-  const [markers, setMarkers] = useState([
+  const rand = 0;
+  let [markers, setMarkers] = useState([
     {
       geocode: [48.86, 2.3522],
       popUp: "Hello, I am pop up 1"
@@ -42,19 +43,23 @@ const Map = () => {
     await axios.get("http://localhost:8000/api/contacts")
     .then(response => {
         Array.from(response.data).map( (contact) => {
-          setMarkers({
-            geocode: [contact.longitude, contact.lattitude],
-            popUp: contact.name,
-          })
+          console.log("contact");
+          console.log(contact);
+          markers.push({
+              geocode: [contact.longitude, contact.lattitude],
+              popUp: contact.name,
+          }
+          )
+          console.log("markers");
           console.log(markers);
       });
       console.log(response.data);
-    })
+    }).catch((e) => {console.log(e)})
     }
 
     useEffect(()=>{
         fetchContacts()
-    })
+    }, [rand])
     return(
         <MapContainer center={[48.8566, 2.3522]} zoom={13}>
             <TileLayer
@@ -66,7 +71,7 @@ const Map = () => {
         iconCreateFunction={createClusterCustomIcon}
       >
         {markers.map((marker) => (
-          <Marker position={marker.geocode} icon={customIcon}>
+           <Marker position={marker.geocode} icon={customIcon}>
             <Popup>{marker.popUp}</Popup>
           </Marker>
         ))}
