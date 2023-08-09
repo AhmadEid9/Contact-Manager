@@ -44,7 +44,7 @@ const ContactForm = () => {
       <div>
         <label htmlFor="longitude">Longitude:</label>
         <input
-          type="text"
+          type="number"
           id="longitude"
           name="longitude"
           onChange={handleChange}
@@ -54,7 +54,7 @@ const ContactForm = () => {
       <div>
         <label htmlFor="lattitude">Lattitude:</label>
         <input
-          type="text"
+          type="number"
           id="lattitude"
           name="lattitude"
           onChange={handleChange}
